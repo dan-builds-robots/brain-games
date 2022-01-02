@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="dan.ajayi.braingames.MainActivity">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="325dp"
+        android:layout_height="140dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.071"
+        app:srcCompat="@drawable/brain_games" />
+
+    <ImageView
+        android:id="@+id/playButton"
+        android:layout_width="170dp"
+        android:layout_height="72dp"
+        android:clickable="true"
+        android:onClick="start"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo"
+        app:layout_constraintVertical_bias="0.26"
+        app:srcCompat="@drawable/start_button" />
+
+    <TextView
+        android:id="@+id/highScoreText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="125dp"
+        android:layout_marginBottom="6dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="High Score:"
+        android:textSize="18sp"
+        android:typeface="monospace"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/playButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/signature"
+        android:layout_width="171dp"
+        android:layout_height="37dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/playButton"
+        app:srcCompat="@drawable/signature_main" />
+
+    <TextView
+        android:id="@+id/timerText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_blue_bright"
+        android:fontFamily="sans-serif-medium"
+        android:padding="8dp"
+        android:tag="timerText"
+        android:text="30s"
+        android:textColor="@android:color/background_light"
+        android:textSize="36sp"
+        android:typeface="monospace"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.047"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
+
+    <TextView
+        android:id="@+id/scoreText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_blue_bright"
+        android:fontFamily="sans-serif-medium"
+        android:padding="8dp"
+        android:tag="scoreText"
+        android:text="0/0"
+        android:textColor="@android:color/background_light"
+        android:textSize="36sp"
+        android:typeface="monospace"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.96"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022" />
+
+    <TextView
+        android:id="@+id/question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:padding="6dp"
+        android:shadowColor="@android:color/black"
+        android:tag="scoreText"
+        android:text="2 x 5"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="60sp"
+        android:typeface="monospace"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.24000001" />
+
+    <ImageView
+        android:id="@+id/hourglass"
+        android:layout_width="42dp"
+        android:layout_height="59dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/scoreText"
+        app:layout_constraintHorizontal_bias="0.02"
+        app:layout_constraintStart_toEndOf="@+id/timerText"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias=".02"
+        app:srcCompat="@drawable/hourglass" />
+
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/buttonLayout"
+        android:layout_width="280dp"
+        android:layout_height="280dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/question"
+        app:layout_constraintVertical_bias="0.18">
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_red_light"
+            android:onClick="chooseAnswer"
+            android:tag="0"
+            android:text="1"
+            android:fontFamily="sans-serif-black"
+            android:textColor="@android:color/background_light"
+            android:textSize="60sp"
+            app:layout_column="0"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill"
+            app:layout_row="0"
+            app:layout_rowWeight="1" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_orange_light"
+            android:onClick="chooseAnswer"
+            android:tag="1"
+            android:text="2"
+            android:fontFamily="sans-serif-black"
+            android:textColor="@android:color/background_light"
+            android:textSize="60sp"
+            app:layout_column="1"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill"
+            app:layout_row="0"
+            app:layout_rowWeight="1" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_green_light"
+            android:onClick="chooseAnswer"
+            android:tag="2"
+            android:text="3"
+            android:fontFamily="sans-serif-black"
+            android:textColor="@android:color/background_light"
+            android:textSize="60sp"
+            app:layout_column="0"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill"
+            app:layout_row="1"
+            app:layout_rowWeight="1" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_blue_bright"
+            android:onClick="chooseAnswer"
+            android:tag="3"
+            android:text="4"
+            android:fontFamily="sans-serif-black"
+            android:textColor="@android:color/background_light"
+            android:textSize="60sp"
+            app:layout_column="1"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill"
+            app:layout_row="1"
+            app:layout_rowWeight="1" />
+
+    </androidx.gridlayout.widget.GridLayout>
+
+    <ImageView
+        android:id="@+id/settingsBtn"
+        android:layout_width="45dp"
+        android:layout_height="40dp"
+        android:alpha=".6"
+        android:onClick="settingsPanel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.02"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.98"
+        app:srcCompat="@drawable/gear" />
+
+    <ImageView
+        android:id="@+id/menu"
+        android:layout_width="355dp"
+        android:layout_height="223dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo"
+        app:layout_constraintVertical_bias="0.269"
+        app:srcCompat="@drawable/menu" />
+
+    <ImageView
+        android:id="@+id/homeBtn"
+        android:layout_width="71dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:clickable="true"
+        android:onClick="home"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/menu"
+        app:layout_constraintEnd_toStartOf="@+id/musicBtn"
+        app:layout_constraintHorizontal_bias="0.16"
+        app:layout_constraintStart_toStartOf="@+id/menu"
+        app:layout_constraintTop_toTopOf="@+id/menu"
+        app:layout_constraintVertical_bias="0.36"
+        app:srcCompat="@drawable/homebtn" />
+
+    <ImageView
+        android:id="@+id/musicBtn"
+        android:layout_width="71dp"
+        android:layout_height="71dp"
+        android:clickable="true"
+        android:onClick="muteMusic"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/menu"
+        app:layout_constraintEnd_toEndOf="@+id/menu"
+        app:layout_constraintStart_toStartOf="@+id/menu"
+        app:layout_constraintTop_toTopOf="@+id/menu"
+        app:layout_constraintVertical_bias="0.36"
+        app:srcCompat="@drawable/music" />
+
+    <ImageView
+        android:id="@+id/sfxBtn"
+        android:layout_width="71dp"
+        android:layout_height="71dp"
+        android:clickable="true"
+        android:onClick="muteSfx"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/menu"
+        app:layout_constraintEnd_toEndOf="@+id/menu"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toEndOf="@+id/musicBtn"
+        app:layout_constraintTop_toTopOf="@+id/menu"
+        app:layout_constraintVertical_bias="0.36"
+        app:srcCompat="@drawable/sound" />
+
+    <ImageView
+        android:id="@+id/musicX"
+        android:layout_width="51dp"
+        android:layout_height="51dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/musicBtn"
+        app:layout_constraintEnd_toEndOf="@+id/musicBtn"
+        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintStart_toStartOf="@+id/musicBtn"
+        app:layout_constraintTop_toTopOf="@+id/musicBtn"
+        app:layout_constraintVertical_bias="0.59000003"
+        app:srcCompat="@drawable/music_x" />
+
+    <ImageView
+        android:id="@+id/sfxX"
+        android:layout_width="47dp"
+        android:layout_height="47dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/sfxBtn"
+        app:layout_constraintEnd_toEndOf="@+id/sfxBtn"
+        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintStart_toStartOf="@+id/sfxBtn"
+        app:layout_constraintTop_toTopOf="@+id/sfxBtn"
+        app:srcCompat="@drawable/sound_x" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
